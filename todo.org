@@ -1,0 +1,3 @@
+* add stop op
+* add readers
+* compile
