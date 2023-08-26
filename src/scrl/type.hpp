@@ -20,7 +20,7 @@ namespace scrl {
     
     AbstractType(const Str &name);
     virtual void dump(const Val &v, OStream &out) const = 0;
-    virtual E emit(const Val &v, VM &vm, Env &env, Forms &args);
+    virtual E emit(const Val &v, VM &vm, Env &env, Forms &args, Pos pos);
     virtual bool eq(const Val &v1, const Val &v2) const = 0;
     virtual bool is_true(const Val &v) const;
   };

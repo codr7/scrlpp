@@ -8,16 +8,15 @@
 
 namespace scrl {
   enum class OpCode {
-    Push, Trace,
+    PrimCall, Push, Trace,
     Stop
   };
   
   struct Op {
     struct Imp {
       OpCode code;
-      optional<Form> form;
 
-      Imp(OpCode code, const optional<Form> form = nullopt);
+      Imp(OpCode code);
       virtual ~Imp();
       virtual void dump(ostream& out) const = 0;
     };

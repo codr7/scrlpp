@@ -5,7 +5,7 @@
 namespace scrl {
   AbstractType::AbstractType(const Str &name): name(name) {}
 
-  E AbstractType::emit(const Val &v, VM &vm, Env &env, Forms &args) {
+  E AbstractType::emit(const Val &v, VM &vm, Env &env, Forms &args, Pos pos) {
     vm.emit<PushOp>(v);
     return nullopt;
   }

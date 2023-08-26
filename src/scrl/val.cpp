@@ -4,7 +4,7 @@
 namespace scrl {
   void Val::dump(ostream &out) const { type->dump(*this, out); }
 
-  E Val::emit(VM &vm, Env &env, Forms &args) const { return type->emit(*this, vm, env, args); }
+  E Val::emit(VM &vm, Env &env, Forms &args, Pos pos) const { return type->emit(*this, vm, env, args, pos); }
 
   ostream &operator <<(ostream &out, const Val &v) {
     v.type->dump(v, out);

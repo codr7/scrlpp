@@ -24,7 +24,7 @@ namespace scrl {
     Val(Type<T> &type, const T &data);
     
     void dump(ostream &out) const;
-    E emit(VM &vm, Env &env, Forms &args) const;
+    E emit(VM &vm, Env &env, Forms &args, Pos pos) const;
     
     template <typename T>
     T as() const;

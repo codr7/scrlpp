@@ -17,7 +17,7 @@ namespace scrl {
       return read_int(vm, in, pos);
     } else if (isgraph(c)) {
       in.unget();
-      return read_str(vm, in, pos);
+      return read_id(vm, in, pos);
     }
       
     return ReadE(nullopt, Error(pos, c, '?'));

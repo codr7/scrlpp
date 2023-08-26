@@ -1,7 +1,7 @@
 #include "scrl/vm.hpp"
 
 namespace scrl {
-  Lib::Lib(): Env() {}
+  Lib::Lib(VM &vm): Env(vm) {}
   
-  Lib::Lib(const Lib &parent): Env(parent) {}
+  Lib::Lib(VM &vm, const Lib &parent): Env(vm, parent) {}
 }

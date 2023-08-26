@@ -9,12 +9,7 @@ namespace scrl {
   
   E IdForm::Imp::emit(VM &vm, Env &env, deque<Form> &args) const {
     auto found = env.find(name);
-
-    if (found) {
-      args.push_front(LitForm(pos, *found));
-      return nullopt;
-    }
-    
+    if (found) { return found->emit(vm, env, args, pos); }
     return Error(pos, name, '?');
   }
 

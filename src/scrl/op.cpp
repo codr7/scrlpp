@@ -1,7 +1,7 @@
 #include "scrl/op.hpp"
 
 namespace scrl {
-  Op::Imp::Imp(OpCode code, const optional<Form> form): code(code), form(form) {}
+  Op::Imp::Imp(OpCode code): code(code) {}
   Op::Imp::~Imp() {}
 
   Op::Op(shared_ptr<const Imp> imp): imp(imp) {}

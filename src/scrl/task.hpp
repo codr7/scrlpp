@@ -13,12 +13,12 @@ namespace scrl {
     Env env;
     Stack stack;
 
-    Task();
+    Task(VM &vm);
     void push(const Val &val);
     Val pop();
   };
 
-  inline Task::Task(): stdin(&cin), stdout(&cout) {}
+  inline Task::Task(VM &vm): stdin(&cin), stdout(&cout), env(vm) {}
 
   inline void Task::push(const Val &val) { stack.push_back(val); }
 

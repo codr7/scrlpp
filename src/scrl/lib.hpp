@@ -5,8 +5,8 @@
 
 namespace scrl {
   struct Lib: Env {
-    Lib();
-    Lib(const Lib &parent);
+    Lib(VM &vm);
+    Lib(VM &vm, const Lib &parent);
   };
 }
 

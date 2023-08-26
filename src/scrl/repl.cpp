@@ -10,7 +10,8 @@ namespace scrl {
     for (;;) {
     NEXT:
       cout << "  ";
-     
+      cout.flush();
+	
       Str line;
       if (!getline(cin, line)) { break; }
        
@@ -24,6 +25,7 @@ namespace scrl {
 
 	  if (e) {
 	    cout << *e << endl;
+	    cout.flush();
 	    break;
 	  }
 
@@ -34,6 +36,7 @@ namespace scrl {
 	while (!fs.empty()) {
 	  if (auto e = pop_front(fs).emit(vm, vm.task().env, fs); e) {
 	    cout << *e << endl;
+	    cout.flush();
 	    goto NEXT;
 	  }
 	}
@@ -44,10 +47,12 @@ namespace scrl {
 	
 	if (auto e = eval(vm, start_pc); e) {
 	  cout << *e << endl;
+	  cout.flush();
 	  break;
 	}
 
 	cout << vm.task().stack << endl;
+	cout.flush();
       } else {
 	buf << line << endl;
       }
