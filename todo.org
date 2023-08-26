@@ -1,5 +1,3 @@
-* add Task.pc
-** update in eval/dispatch
 * convert Type/AbstractType to Imp types
 ** update val
 * switch Char to char32_t (u32string)

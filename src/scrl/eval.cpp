@@ -5,7 +5,7 @@
 #include "scrl/vm.hpp"
 
 #define DISPATCH(next_pc)						\
-  goto *dispatch[static_cast<int>((op = vm.ops[pc = (next_pc)]).code())] \
+  goto *dispatch[static_cast<int>((op = vm.ops[pc = vm.task().pc = (next_pc)]).code())] \
 
 namespace scrl {
   E eval(VM &vm, PC &pc) {

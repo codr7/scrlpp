@@ -10,6 +10,7 @@ namespace scrl {
     istream *stdin;
     ostream *stdout;
 
+    PC pc;
     Env env;
     Stack stack;
 
