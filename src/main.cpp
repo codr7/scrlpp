@@ -2,30 +2,26 @@
 #include <functional>
 #include <iostream>
 
-#include "alang/vm.hpp"
-#include "alang/repl.hpp"
+#include "scrl/vm.hpp"
 
 using namespace std;
 
 using Args = deque<string>;
 
 static int repl_cmd(Args &args) {
-  v_cmd(args);
-  cout << endl;
-  
-  alang::Pos pos("init", 1, 1);
-  alang::VM vm();
+  scrl::Pos pos("init", 1, 1);
+  scrl::VM vm;
 
-  if (auto e = vm.root_env.import(vm.abc_lib, {}, pos); e) {
+  if (auto e = vm.task().env.import(vm.abc_lib, {}, pos); e) {
     cout << *e << endl;
     return -1;
   }
 
-  alang::repl(vm);
+  scrl::repl(vm);
   return 0;
 }
 
-sing Cmd = function<int (Args &args)>;
+using Cmd = function<int (Args &args)>;
 
 int main(int argc, char *argv[]) {
   static const map<string, Cmd> cmds = {
@@ -44,7 +40,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  if (!cmd) { cmd = repl_cmd; ]
+  if (!cmd) { cmd = repl_cmd; }
 
   Args args;
   for (; i < argc; i++) { args.push_back(argv[i]); }

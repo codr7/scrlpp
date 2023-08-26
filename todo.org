@@ -1,3 +1,10 @@
-* add stop op
-* add readers
-* compile
+* change VM emit functions to templates
+** use emplace_back() and forward args
+* add Prim/trace
+** add PrimCallOp
+** store prim ref in op
+* convert Type/AbstractType to Imp types
+** update val
+* switch Char to char32_t (u32string)
+** grep string/istream/ostream
+** switch literals to U""
