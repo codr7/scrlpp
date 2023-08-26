@@ -1,5 +1,3 @@
-* change VM emit functions to templates
-** use emplace_back() and forward args
 * add Prim/trace
 ** add PrimCallOp
 ** store prim ref in op

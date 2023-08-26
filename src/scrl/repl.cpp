@@ -4,6 +4,7 @@
 
 namespace scrl {
   void repl(VM &vm) {
+    cout << "scrl v" << VERSION << endl << endl;
     SStream buf;
   
     for (;;) {
@@ -39,7 +40,7 @@ namespace scrl {
 
 	buf.str("");
 	buf.clear();
-	vm.emit(StopOp());
+	vm.emit<StopOp>();
 	
 	if (auto e = eval(vm, start_pc); e) {
 	  cout << *e << endl;
