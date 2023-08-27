@@ -31,15 +31,20 @@ namespace scrl {
     };
 
     shared_ptr<const Imp> imp;
-    
-    Form(shared_ptr<const Imp> imp = nullptr);
+
+    Form(shared_ptr<const Imp> imp = nullptr);    
     void dump(OStream& out) const;
     E emit(VM &vm, Env &env, Forms &args) const;
 
-    template <typename T>
+    template <typename T, typename...Args>
     const typename T::Imp &as() const { return *static_cast<const typename T::Imp *>(imp.get()); }
   };
-
+  
+  template <typename T, typename...Args>
+  Form make_form(Args &&...args) {
+    return Form(make_shared<T>(forward<Args>(args)...));
+  }
+  
   OStream &operator<<(OStream &out, const Form &f);
 }
 

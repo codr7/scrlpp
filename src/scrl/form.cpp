@@ -1,9 +1,6 @@
 #include "scrl/form.hpp"
 
 namespace scrl {
-  Form::Imp::Imp(Pos pos): pos(pos) {}
-  Form::Imp::~Imp() {}
-
   Form::Form(shared_ptr<const Imp> imp): imp(imp) {}
 
   void Form::dump(OStream& out) const { imp->dump(out); }
@@ -14,4 +11,8 @@ namespace scrl {
     f.dump(out);
     return out;
   }
+
+  Form::Imp::Imp(Pos pos): pos(pos) {}
+  
+  Form::Imp::~Imp() {}
 }

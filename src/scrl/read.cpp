@@ -42,7 +42,7 @@ namespace scrl {
       return ReadE(nullopt, nullopt);
     }
 
-    return ReadE(IdForm(fpos, buf.str()), nullopt);
+    return ReadE(make_form<IdForm>(fpos, buf.str()), nullopt);
   }
 
   ReadE read_int_base(VM &vm, IStream &in, Pos &pos, int base) {
@@ -68,7 +68,7 @@ namespace scrl {
     }
     
     if (!in.eof()) { in.unget();}
-    return ReadE(LitForm(fpos, Val(vm.abc_lib.int_type, v)), nullopt);
+    return ReadE(make_form<LitForm>(fpos, Val(vm.abc_lib.int_type, v)), nullopt);
   }
 
   ReadE read_int(VM &vm, IStream &in, Pos &pos) {
@@ -87,7 +87,7 @@ namespace scrl {
     }
 
     if (!buf.tellp()) { return ReadE(nullopt, nullopt); }
-    return ReadE(LitForm(fpos, Val(vm.abc_lib.str_type, buf.str())), nullopt);
+    return ReadE(make_form<LitForm>(fpos, Val(vm.abc_lib.str_type, buf.str())), nullopt);
   }
 
   ReadE read_ws(VM &vm, IStream &in, Pos &pos) {
