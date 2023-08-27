@@ -1,8 +1,7 @@
-* convert Op Imp types like Form
-** add make_op
-* convert Type/AbstractType to Imp types
+* convert Type/AType to Imp types
 ** update val
 * convert Prim to Imp types
 * switch Char to char32_t (u32string)
 ** grep string/istream/ostream
 ** switch literals to U""
+   

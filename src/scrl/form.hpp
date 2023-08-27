@@ -37,7 +37,7 @@ namespace scrl {
     E emit(VM &vm, Env &env, Forms &args) const;
 
     template <typename T, typename...Args>
-    const typename T::Imp &as() const { return *static_cast<const typename T::Imp *>(imp.get()); }
+    const T &as() const { return *static_cast<const T *>(imp.get()); }
   };
   
   template <typename T, typename...Args>

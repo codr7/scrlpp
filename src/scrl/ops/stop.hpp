@@ -4,13 +4,9 @@
 #include "scrl/op.hpp"
 
 namespace scrl {
-  struct StopOp: Op {
-    struct Imp: Op::Imp {
-      Imp();
-      virtual void dump(ostream& out) const;
-    };
-
+  struct StopOp: Op::Imp {
     StopOp();
+    virtual void dump(ostream& out) const;
   };
 }
 

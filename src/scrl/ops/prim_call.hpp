@@ -7,16 +7,12 @@
 namespace scrl {
   struct Prim;
   
-  struct PrimCallOp: Op {
-    struct Imp: Op::Imp {
-      Prim &target;
-      Pos pos;
+  struct PrimCallOp: Op::Imp {
+    Prim &target;
+    Pos pos;
       
-      Imp(Prim &target, Pos pos);
-      virtual void dump(ostream& out) const;
-    };
-
     PrimCallOp(Prim &target, Pos pos);
+    virtual void dump(ostream& out) const;
   };
 }
 

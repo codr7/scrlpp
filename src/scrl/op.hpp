@@ -28,10 +28,15 @@ namespace scrl {
     void dump(ostream& out) const;
 
     template <typename T>
-    const typename T::Imp &as() const { return *static_cast<const typename T::Imp *>(imp.get()); }
+    const T &as() const { return *static_cast<const T *>(imp.get()); }
   };
 
   inline OpCode Op::code() const { return imp->code; }
+
+  template <typename T, typename...Args>
+  Op make_op(Args &&...args) {
+    return Op(make_shared<T>(forward<Args>(args)...));
+  }
   
   ostream &operator<<(ostream &out, Op val);
 }

@@ -49,7 +49,7 @@ namespace scrl {
   template <typename T, typename...Args>
   PC VM::emit_no_trace(Args &&...args) {
     const PC pc = ops.size();
-    ops.push_back(T(forward<Args>(args)...));
+    ops.push_back(make_op<T>(forward<Args>(args)...));
     return pc;
   }
 

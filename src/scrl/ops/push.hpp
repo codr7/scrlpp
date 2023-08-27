@@ -5,15 +5,11 @@
 #include "scrl/val.hpp"
 
 namespace scrl {
-  struct PushOp: Op {
-    struct Imp: Op::Imp {
-      Val val;
+  struct PushOp: Op::Imp {
+    Val val;
       
-      Imp(const Val &val);
-      virtual void dump(ostream& out) const;
-    };
-
     PushOp(const Val &val);
+    virtual void dump(ostream& out) const;
   };
 }
 

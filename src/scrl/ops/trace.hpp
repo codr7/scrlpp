@@ -4,13 +4,9 @@
 #include "scrl/op.hpp"
 
 namespace scrl {
-  struct TraceOp: Op {
-    struct Imp: Op::Imp {
-      Imp();
-      virtual void dump(ostream& out) const;
-    };
-
+  struct TraceOp: Op::Imp {
     TraceOp();
+    virtual void dump(ostream& out) const;
   };
 }
 
