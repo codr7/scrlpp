@@ -48,10 +48,7 @@ namespace scrl {
 
   inline Val::Val(const Val &v): type(v.type), data(v.data) {}
   
-  inline Val &Val::operator =(const Val &v) {
-    *this = Val(v);
-    return *this;
-  }
+  inline Val &Val::operator =(const Val &v) { return *this = Val(v); }
 
   template <typename T>
   T &Val::as() { return any_cast<T &>(data); }
