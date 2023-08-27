@@ -14,7 +14,7 @@ namespace scrl {
   struct VM;
   
   struct Val {
-    AbstractType *type;
+    AType *type;
     any data;
 
     template <typename T>
