@@ -7,11 +7,11 @@
 namespace scrl {
   struct Prim;
   
-  struct PrimType: Type<Prim *> {
+  struct PrimType: Type<Prim *>::Imp {
     PrimType(const Str &name);
-    virtual void dump(const Val &v, OStream &out) const;
-    virtual E emit(const Val &v, VM &vm, Env &env, Forms &args, Pos pos);
-    virtual bool eq(const Val &v1, const Val &v2) const;
+    virtual void dump(const Val &v, OStream &out) const override;
+    virtual E emit(const Val &v, VM &vm, Env &env, Forms &args, Pos pos) const override;
+    virtual bool eq(const Val &v1, const Val &v2) const override;
   };
 }
 

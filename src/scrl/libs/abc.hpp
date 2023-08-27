@@ -9,10 +9,10 @@
 
 namespace scrl {
   struct AbcLib: Lib {
-    BoolType bool_type;
-    IntType int_type;
-    PrimType prim_type;
-    StrType str_type;
+    Type<bool> bool_type;
+    Type<Int> int_type;
+    Type<Prim *> prim_type;
+    Type<Str> str_type;
 
     AbcLib(VM &vm);
   };

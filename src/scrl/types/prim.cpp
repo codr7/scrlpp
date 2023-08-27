@@ -5,11 +5,11 @@
 #include "scrl/vm.hpp"
 
 namespace scrl {
-  PrimType::PrimType(const Str &name): Type<Prim *>(name) {}
+  PrimType::PrimType(const Str &name): Type<Prim *>::Imp(name) {}
 
   void PrimType::dump(const Val &v, OStream &out) const { out << *v.as<Prim *>(); }
 
-  E PrimType::emit(const Val &v, VM &vm, Env &env, Forms &args, Pos pos) {
+  E PrimType::emit(const Val &v, VM &vm, Env &env, Forms &args, Pos pos) const {
     vm.emit<PrimCallOp>(*v.as<Prim *>(), pos);
     return nullopt;
   }

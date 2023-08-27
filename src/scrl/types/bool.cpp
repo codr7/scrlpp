@@ -2,7 +2,7 @@
 #include "scrl/val.hpp"
 
 namespace scrl {
-  BoolType::BoolType(const Str &name): Type<bool>(name) {}
+  BoolType::BoolType(const Str &name): Type<bool>::Imp(name) {}
 
   void BoolType::dump(const Val &v, OStream &out) const { out << (v.as<bool>() ? 'T' : 'F'); }
   

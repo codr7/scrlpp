@@ -14,32 +14,34 @@ namespace scrl {
   struct VM;
   
   struct Val {
-    AType *type;
+    AType type;
     any data;
 
     template <typename T>
-    Val(Type<T> &type, T &&data);
+    Val(const Type<T> &type, T &&data);
 
     template <typename T>
-    Val(Type<T> &type, const T &data);
-    
-    void dump(ostream &out) const;
-    E emit(VM &vm, Env &env, Forms &args, Pos pos) const;
-    
+    Val(const Type<T> &type, const T &data);
+
     template <typename T>
     T as() const;
 
-    operator bool() const { return type->is_true(*this); }
+    void dump(ostream &out) const;
+    E emit(VM &vm, Env &env, Forms &args, Pos pos) const;
+    
+    operator bool() const;
   };
 
   template <typename T>
-  Val::Val(Type<T> &type, T &&data): type(&type), data(move(data)) {}
+  Val::Val(const Type<T> &type, T &&data): type(type), data(move(data)) {}
 
   template <typename T>
-  Val::Val(Type<T> &type, const T &data): type(&type), data(data) {}
+  Val::Val(const Type<T> &type, const T &data): type(type), data(data) {}
   
   template <typename T>
   T Val::as() const { return any_cast<T>(data); }
+
+  inline Val::operator bool() const { return type.is_true(*this); }
 
   ostream &operator <<(ostream &out, const Val &v);
   bool operator ==(const Val &v1, const Val &v2);

@@ -3,18 +3,22 @@
 #include "scrl/vm.hpp"
 
 namespace scrl {
-  AType::AType(const Str &name): name(name) {}
+  AType::AType(shared_ptr<const Imp> imp): imp(imp) {}
 
-  E AType::emit(const Val &v, VM &vm, Env &env, Forms &args, Pos pos) {
+  AType::Imp::Imp(const Str &name): name(name) {}
+
+  AType::Imp::~Imp() {}
+
+  E AType::Imp::emit(const Val &v, VM &vm, Env &env, Forms &args, Pos pos) const {
     vm.emit<PushOp>(v);
     return nullopt;
   }
 
-  bool AType::is_true(const Val &v) const { return true; }
-
+  bool AType::Imp::is_true(const Val &v) const { return true; }
+  
   ostream &operator <<(ostream &out, AType &t) {
-      out << t.name;
-      return out;
+    out << t.name();
+    return out;
   }
 
   bool operator ==(const AType &t1, const AType &t2) {

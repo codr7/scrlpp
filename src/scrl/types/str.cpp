@@ -2,7 +2,7 @@
 #include "scrl/val.hpp"
 
 namespace scrl {
-  StrType::StrType(const Str &name): Type<Str>(name) {}
+  StrType::StrType(const Str &name): Type<Str>::Imp(name) {}
 
   void StrType::dump(const Val &v, OStream &out) const { out << v.as<Str>(); }
   

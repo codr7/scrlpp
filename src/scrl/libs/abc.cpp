@@ -4,10 +4,10 @@
 namespace scrl {
   AbcLib::AbcLib(VM &vm):
     Lib(vm),
-    bool_type("Bool"),
-    int_type("Int"),
-    prim_type("Prim"),
-    str_type("Str") {
+    bool_type(make_type<BoolType>("Bool")),
+    int_type(make_type<IntType>("Int")),
+    prim_type(make_type<PrimType>("Prim")),
+    str_type(make_type<StrType>("Str")) {
     bind_prim("trace", 0, [](const Prim &prim, VM &vm, PC &pc, Pos pos) -> E {
       vm.trace = !vm.trace;
       vm.task().push(Val(vm.abc_lib.bool_type, vm.trace));
