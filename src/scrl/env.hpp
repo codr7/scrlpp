@@ -15,7 +15,7 @@ namespace scrl {
     Env(VM &vm);
     Env(VM &vm, const Env &parent);
     void bind(const Str &name, const Val &val);
-    Prim &bind_prim(const Str &name, int nargs, Prim::Body body);
+    void bind_prim(Prim &p);
     optional<Val> find(const Str &name) const;    
     E import(const Env &source, initializer_list<Str> names, const Pos &pos);
   };

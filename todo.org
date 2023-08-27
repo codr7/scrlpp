@@ -1,4 +1,3 @@
-* convert Prim to Imp
 * add </>/= prims
 ** add CmpType
 *** add lt/eq methods
@@ -8,4 +7,3 @@
 * switch Char to char32_t (u32string)
 ** grep string/istream/ostream
 ** switch literals to U""
-   

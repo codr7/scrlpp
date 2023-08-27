@@ -14,8 +14,8 @@ namespace scrl {
     Prim(const Str &name, int nargs, Body body);
     E call(VM &vm, PC &pc, Pos pos) const;
     
-    Str name;
-    int nargs;
+    const Str name;
+    const int nargs;
     Body body;
   };
 

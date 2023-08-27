@@ -8,10 +8,10 @@ namespace scrl {
   struct Prim;
   
   struct PrimCallOp: Op::Imp {
-    Prim &target;
+    const Prim &target;
     Pos pos;
       
-    PrimCallOp(Prim &target, Pos pos);
+    PrimCallOp(const Prim &target, Pos pos);
     virtual void dump(ostream& out) const;
   };
 }

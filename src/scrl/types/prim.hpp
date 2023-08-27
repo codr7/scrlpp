@@ -7,7 +7,7 @@
 namespace scrl {
   struct Prim;
   
-  struct PrimType: Type<Prim *>::Imp {
+  struct PrimType: Type<Prim &>::Imp {
     PrimType(const Str &name);
     virtual void dump(const Val &v, OStream &out) const override;
     virtual E emit(const Val &v, VM &vm, Env &env, Forms &args, Pos pos) const override;

@@ -17,7 +17,7 @@ namespace scrl {
   
   struct AType {
     struct Imp {
-      Str name;
+      const Str name;
     
       Imp(const Str &name);
       virtual ~Imp();

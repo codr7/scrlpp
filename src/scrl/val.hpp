@@ -24,7 +24,10 @@ namespace scrl {
     Val(const Type<T> &type, const T &data);
 
     template <typename T>
-    T as() const;
+    T &as();
+
+    template <typename T>
+    const T &as() const;
 
     void dump(ostream &out) const;
     E emit(VM &vm, Env &env, Forms &args, Pos pos) const;
@@ -39,7 +42,10 @@ namespace scrl {
   Val::Val(const Type<T> &type, const T &data): type(type), data(data) {}
   
   template <typename T>
-  T Val::as() const { return any_cast<T>(data); }
+  T &Val::as() { return any_cast<T &>(data); }
+
+  template <typename T>
+  const T &Val::as() const { return any_cast<const T &>(data); }
 
   inline Val::operator bool() const { return type.is_true(*this); }
 
