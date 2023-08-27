@@ -23,6 +23,11 @@ namespace scrl {
     template <typename T>
     Val(const Type<T> &type, const T &data);
 
+    Val(const Val &v);
+    
+    Val &operator =(const Val &v);
+    Val &operator =(Val &&) noexcept = default;
+    
     template <typename T>
     T &as();
 
@@ -40,7 +45,14 @@ namespace scrl {
 
   template <typename T>
   Val::Val(const Type<T> &type, const T &data): type(type), data(data) {}
+
+  inline Val::Val(const Val &v): type(v.type), data(v.data) {}
   
+  inline Val &Val::operator =(const Val &v) {
+    *this = Val(v);
+    return *this;
+  }
+
   template <typename T>
   T &Val::as() { return any_cast<T &>(data); }
 
