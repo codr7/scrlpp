@@ -17,7 +17,7 @@ namespace scrl {
       OpCode code;
 
       Imp(OpCode code);
-      virtual ~Imp();
+      virtual ~Imp() = default;
       virtual void dump(ostream& out) const = 0;
     };
 

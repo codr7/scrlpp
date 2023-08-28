@@ -13,6 +13,4 @@ namespace scrl {
   }
 
   Form::Imp::Imp(Pos pos): pos(pos) {}
-  
-  Form::Imp::~Imp() {}
 }

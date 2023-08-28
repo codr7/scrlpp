@@ -2,7 +2,6 @@
 
 namespace scrl {
   Op::Imp::Imp(OpCode code): code(code) {}
-  Op::Imp::~Imp() {}
 
   Op::Op(shared_ptr<const Imp> imp): imp(imp) {}
 

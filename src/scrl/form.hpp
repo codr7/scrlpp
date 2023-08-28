@@ -25,7 +25,7 @@ namespace scrl {
       Pos pos;
 
       Imp(Pos pos);
-      virtual ~Imp();
+      virtual ~Imp() = default;
       virtual void dump(OStream& out) const = 0;
       virtual E emit(VM &vm, Env &env, Forms &args) const = 0;
     };

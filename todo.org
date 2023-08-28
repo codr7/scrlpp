@@ -7,3 +7,5 @@
 * switch Char to char32_t (u32string)
 ** grep string/istream/ostream
 ** switch literals to U""
+* pass sink arguments by value and move into place
+** type/prim name
