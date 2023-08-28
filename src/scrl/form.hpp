@@ -31,6 +31,7 @@ namespace scrl {
     template <typename T>
     struct Imp: AImp {
       T data;
+
       Imp(T data);
       void dump(OStream& out) const override;
       E emit(VM &vm, Env &env, Forms &args) const override;
@@ -45,9 +46,6 @@ namespace scrl {
     void dump(OStream& out) const;
     E emit(VM &vm, Env &env, Forms &args) const;
     const Pos &pos() const;
-
-    template <typename T, typename...Args>
-    const T &as() const { return *static_cast<const T *>(imp.get()); }
   };
 
   template <typename T>
