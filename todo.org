@@ -1,6 +1,7 @@
-* convert Op like Form
+* Decouple Op imps
 ** AImp/Imp
 ** free template functions
+* Decouple Type imps
 * add </>/= prims
 ** add CmpType
 *** add lt/eq methods
