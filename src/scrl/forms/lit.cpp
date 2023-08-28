@@ -5,12 +5,14 @@
 #include "scrl/vm.hpp"
 
 namespace scrl {
-  LitForm::LitForm(Pos pos, const Val &val): Form::Imp(pos), val(val) {}
+  LitForm::LitForm(Pos pos, const Val &val): pos(pos), val(val) {}
 
-  void LitForm::dump(OStream &out) const { val.dump(out); }
+  template <>
+  void dump(const LitForm &f, OStream &out) { f.val.dump(out); }
   
-  E LitForm::emit(VM &vm, Env &env, Forms &args) const {
-    vm.emit<PushOp>(val);
+  template <>
+  E emit(const LitForm &f, VM &vm, Env &env, Forms &args) {
+    vm.emit<PushOp>(f.val);
     return nullopt;
   }
 }

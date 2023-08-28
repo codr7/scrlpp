@@ -1,3 +1,6 @@
+* convert Op like Form
+** AImp/Imp
+** free template functions
 * add </>/= prims
 ** add CmpType
 *** add lt/eq methods

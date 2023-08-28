@@ -3,13 +3,15 @@
 #include "scrl/vm.hpp"
 
 namespace scrl {  
-  IdForm::IdForm(const Pos &pos, const Str &name): Imp(pos), name(name) {}
+  IdForm::IdForm(const Pos &pos, const Str &name): pos(pos), name(name) {}
 
-  void IdForm::dump(OStream &out) const { out << name; }
+  template <>
+  void dump(const IdForm &f, OStream &out) { out << f.name; }
   
-  E IdForm::emit(VM &vm, Env &env, deque<Form> &args) const {
-    auto found = env.find(name);
-    if (found) { return found->emit(vm, env, args, pos); }
-    return Error(pos, name, '?');
+  template <>
+  E emit(const IdForm &f, VM &vm, Env &env, deque<Form> &args) {
+    auto found = env.find(f.name);
+    if (found) { return found->emit(vm, env, args, f.pos); }
+    return Error(f.pos, f.name, '?');
   }
 }

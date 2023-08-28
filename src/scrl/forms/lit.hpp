@@ -5,13 +5,18 @@
 #include "scrl/val.hpp"
 
 namespace scrl {  
-  struct LitForm: Form::Imp {
+  struct LitForm {
+    Pos pos;
     Val val;
     
     LitForm(Pos pos, const Val &val);    
-    void dump(OStream& out) const override;
-    E emit(VM &vm, Env &env, Forms &args) const override;
   };
+
+  template <>
+  void dump(const LitForm &f, OStream& out);
+
+  template <>
+  E emit(const LitForm &f, VM &vm, Env &env, Forms &args);
 }
 
 #endif

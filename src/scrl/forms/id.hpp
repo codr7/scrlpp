@@ -4,13 +4,18 @@
 #include "scrl/form.hpp"
 
 namespace scrl {
-  struct IdForm: Form::Imp {
+  struct IdForm {
+    Pos pos;
     Str name;
     
     IdForm(const Pos &pos, const Str &name);    
-    void dump(OStream& out) const override;
-    E emit(VM &vm, Env &env, Forms &args) const override;
   };
+
+  template <>
+  void dump(const IdForm &f, OStream& out);
+
+  template <>
+  E emit(const IdForm &f, VM &vm, Env &env, Forms &args);
 }
 
 #endif
